@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import numpy as np
+import matplotlib.patches as mpatches
 
 class AnimationGrafic:
     def __init__(self):
@@ -8,12 +8,21 @@ class AnimationGrafic:
         self.artics = []
         self.ani = object
 
+        self.color = {"pivo":"red", "itens":"green"}
+        
+        pivo_legend = mpatches.Patch(color=self.color["pivo"], label="Pivo")
+        itens_legend = mpatches.Patch(color=self.color["itens"], label="Valores")
+        plt.xlabel("Quicksort")
+        self.ax.legend(handles=[pivo_legend, itens_legend])
+
+
     def append(self, values, destac):
         colors = []
         for i in range(len(values)):
-            colors.append("tab:green")
             if i == destac: 
-                colors[i] = "tab:red"
+                colors.append(self.color["pivo"])
+            else:
+                colors.append(self.color["itens"])
 
         container = self.ax.bar(range(len(values)), values, color=colors)
         self.artics.append(container)
