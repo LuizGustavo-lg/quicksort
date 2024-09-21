@@ -3,6 +3,13 @@ import random
 
 
 def quick_sort(values, left, right, animation):
+    '''
+    -> Ordena um vetor com elementos inteiros
+    :param values: vetor de elementos para ordenação
+    :param left: indice do elemento mais a direita
+    :param right: indice do elemento mais a esquerda
+    :param animation: objeto de animação
+    '''
     
     if left < right:
 
@@ -13,6 +20,14 @@ def quick_sort(values, left, right, animation):
 
 
 def partition(values, left, right):
+    '''
+    -> Seleciona um pivo
+    -> Ordena os elementos menores que o pivo a esquerda e os maiores a direita
+    :param values: vetor de elementos
+    :param left: indice do elemento mais a direita
+    :param right: indice do elemento mais a esquerda
+    :return: indice pivo
+    '''
     pivo = values[left]
     j = left
 

@@ -17,6 +17,11 @@ class AnimationGrafic:
 
 
     def append(self, values, destac):
+        '''
+        -> Adiciona um novo quadro a lista de animações
+        :param values: lista a ser adicionada
+        :param destac: indice do elemento em destaque
+        '''
         colors = []
         for i in range(len(values)):
             if i == destac: 
@@ -28,10 +33,21 @@ class AnimationGrafic:
         self.artics.append(container)
 
     def render(self, interval=400):
+        '''
+        -> Renderiza todas as interações
+        :param interval: tempo (em milisegundos) de cada quadro - defalt=400
+        '''
         self.ani = animation.ArtistAnimation(fig=self.fig, artists=self.artics, interval=interval)
 
     def show(self):
+        '''
+        -> Exibe o grafico animado
+        '''
         plt.show()
 
     def save(self, name="save.gif"):
+        '''
+        -> Salva o grafico animado como um .gif
+        :param name: nome do arquivo salvo - defalt=save.gif
+        '''
         self.ani.save(filename=f"./{name}", writer="pillow")
