@@ -1,5 +1,4 @@
 from animationgrafic import AnimationGrafic
-import random
 
 
 def quick_sort(values, left, right, animation):
@@ -40,21 +39,18 @@ def partition(values, left, right):
     return j
 
 
-
-print("***Gerando Lista Aleatoria**")
-
 values = []
-for i in range(100):
-    values.append(random.randint(0, 100))
+
+with open("dados.txt", "r") as dados:
+    for linha in dados:
+        values.append(int(linha.strip()))
 
 
 animation = AnimationGrafic()
 
 
-print("**Ordenando**")
 quick_sort(values, 0, len(values)-1, animation)
 
-print("**Exibindo Grafico**")
 animation.render(interval=300)
-# animation.save()
+animation.save()
 animation.show()
