@@ -28,9 +28,12 @@ def partition(values, left, right):
 
 print("***Gerando Lista Aleatoria**")
 
-values = []
-for i in range(150):
+values = [
+]
+for i in range(1000):
     values.append(random.randint(0, 100))
+
+print(values)
 
 animation = AnimationGrafic()
 
@@ -38,8 +41,7 @@ animation = AnimationGrafic()
 print("**Ordenando**")
 quick_sort(values, 0, len(values)-1, animation)
 
-
 print("**Exibindo Grafico**")
-animation.render()
-animation.show()
+animation.render(interval=300)
 animation.save()
+animation.show()
