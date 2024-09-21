@@ -78,20 +78,20 @@ void quick_sort(int values[], int left, int right){
 
 
 int main(){
-    int values[1000];
-    fstream dados;
+    int values[100];
+    ifstream dados;
    
-    dados.open("./dados.txt", ios::in);
+    dados.open("./dados.txt");
     for (int i = 0; !dados.eof(); i++){
         dados >> values[i];
     }
     dados.close();
 
-    int tm_v = sizeof(values)/sizeof(values[0]);
+    int tm_v = sizeof(values)/sizeof(values[0])-1;
     
     quick_sort(values, 0, tm_v);
 
-    for(int i = 0; i<tm_v; i++){
+    for(int i = 0; i<=tm_v; i++){
         cout << values[i] << ", ";
     }
     cout << '\n';
