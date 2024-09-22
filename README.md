@@ -28,5 +28,5 @@ A implementação aqui disponível está escrita em Python & C++.
 - `c++/quicksort.cpp`: Implementação do algoritmo QuickSort em c++.
 - `python/quicksort.py`: Implementação do algoritmo QuickSort em python (Gera uma visualização em forma de grafico).
 - `gerar_arq_dados.py`: Gera o arquivo de dados randomizado.
-- `test_quicksort.py`: Testes unitários para garantir o funcionamento correto do algoritmo.
+- `c++/test_quicksort.cpp`: Testes para analizar o funcionamento do algoritmo.
 
