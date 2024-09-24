@@ -36,13 +36,14 @@ int pickPivoIndex(int values[], int left, int right){
 }
 
 
-int partition(int values[], int left, int right){\
+int partition(int values[], int left, int right, bool order){
     /*
     Seleciona um pivo
     Ordena os elementos menores que o pivo a esquerda e os maiores a direita
     param: int values[] - vetor de elementos
     param: int left - indice do elemento mais a direita
     param: int right - indice do elemento mais a esquerda
+    param: int order - ordem de ordenação do array, menores a direita ou a esquerda
     return: indice pivo
     */
     int index_pivo = pickPivoIndex(values, left, right);
@@ -52,7 +53,7 @@ int partition(int values[], int left, int right){\
     index_pivo = left;
 
     for (int i = left+1; i<=right; i++){
-        if (values[i] <= pivo){
+        if (values[i] <= pivo == order){
             ++index_pivo;
             swap(values, i, index_pivo);       
         }
@@ -62,15 +63,16 @@ int partition(int values[], int left, int right){\
 }
 
 
-void quick_sort(int values[], int left, int right){
+void quick_sort(int values[], int left, int right, bool order = 0){
     /*
     Ordena um vetor com elementos inteiros
     param: int values[] - vetor de elementos para ordenação
     param: int left - indice do elemento mais a direita
     param: int right - indice do elemento mais a esquerda
+    param: int order - ordem de ordenação do array (crescente/decrescente) - default=True crescente
     */
     if (left < right){
-        int index_pivo = partition(values, left, right);
+        int index_pivo = partition(values, left, right, order);
         quick_sort(values, left, index_pivo-1);
         quick_sort(values, index_pivo+1, right);
     }
